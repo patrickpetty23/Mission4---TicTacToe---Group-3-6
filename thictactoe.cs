@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mission4___TicTacToe___Group_3_6
 {
-    class ThicTacToe
+    class ThicTacToe()
     {
-        public static void PrintBoard(string[] board)
+        public void PrintBoard(string[] board)
         {
             Console.WriteLine(" {0} | {1} | {2} ", board[0], board[1], board[2]);
             Console.WriteLine("---+---+---");
@@ -17,7 +17,7 @@ namespace Mission4___TicTacToe___Group_3_6
             Console.WriteLine(" {0} | {1} | {2} ", board[6], board[7], board[8]);
         }
 
-        public static bool CheckForWinner(string[] board)
+        public bool CheckForWinner(string[] board, int player)
         {
             if ((board[0] == board[1] && board[1] == board[2]) ||
                 (board[3] == board[4] && board[4] == board[5]) ||
@@ -28,6 +28,7 @@ namespace Mission4___TicTacToe___Group_3_6
                 (board[0] == board[4] && board[4] == board[8]) ||
                 (board[2] == board[4] && board[4] == board[6]))
             {
+                Console.WriteLine($"Player {player} WINS!");
                 return true;
             }
             else
@@ -36,7 +37,7 @@ namespace Mission4___TicTacToe___Group_3_6
             }
         }
 
-        public static bool CheckForTie(string[] board)
+        public bool CheckForTie(string[] board, int player)
         {
             for (int i = 0; i < board.Length; i++)
             {
@@ -44,8 +45,15 @@ namespace Mission4___TicTacToe___Group_3_6
                 {
                     return false;
                 }
+                
             }
-            return true;
+            if (!CheckForWinner(board, player))
+            {
+                Console.WriteLine("It's a TIE!");
+                return true;
+            }else { return false; }
+
+            
         }
     }
 }
