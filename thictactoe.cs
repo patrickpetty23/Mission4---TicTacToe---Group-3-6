@@ -28,8 +28,13 @@ namespace Mission4___TicTacToe___Group_3_6
                 (board[0] == board[4] && board[4] == board[8]) ||
                 (board[2] == board[4] && board[4] == board[6]))
             {
-                Console.WriteLine($"Player {player} WINS!");
+                if (player != 0)
+                {
+                    Console.WriteLine($"Player {player} WINS!");
+                }
+
                 return true;
+
             }
             else
             {
@@ -37,7 +42,7 @@ namespace Mission4___TicTacToe___Group_3_6
             }
         }
 
-        public bool CheckForTie(string[] board, int player)
+        public bool CheckForTie(string[] board)
         {
             for (int i = 0; i < board.Length; i++)
             {
@@ -47,7 +52,7 @@ namespace Mission4___TicTacToe___Group_3_6
                 }
                 
             }
-            if (!CheckForWinner(board, player))
+            if (!CheckForWinner(board, 0))
             {
                 Console.WriteLine("It's a TIE!");
                 return true;

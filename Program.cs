@@ -51,7 +51,7 @@ do
     {
         gameOver = true;
     }
-    if (ttt.CheckForTie(gameboard, 1))
+    if (ttt.CheckForTie(gameboard))
     {
         gameOver = true;
     }
@@ -89,7 +89,7 @@ do
         {
             gameOver = true;
         }
-        if (ttt.CheckForTie(gameboard, 2))
+        if (ttt.CheckForTie(gameboard))
         {
             gameOver = true;
         }
