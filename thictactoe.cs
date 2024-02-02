@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mission4___TicTacToe___Group_3_6
 {
-    class ThicTacToe
+    // This class contains a printboard which prints out the board and numbers
+    class ThicTacToe()
     {
         public void PrintBoard(string[] board)
         {
@@ -16,8 +17,8 @@ namespace Mission4___TicTacToe___Group_3_6
             Console.WriteLine("---+---+---");
             Console.WriteLine(" {0} | {1} | {2} ", board[6], board[7], board[8]);
         }
-
-        public static bool CheckForWinner(string[] board)
+        // It then checks for who is the winner
+        public bool CheckForWinner(string[] board, int player)
         {
             if ((board[0] == board[1] && board[1] == board[2]) ||
                 (board[3] == board[4] && board[4] == board[5]) ||
@@ -28,15 +29,21 @@ namespace Mission4___TicTacToe___Group_3_6
                 (board[0] == board[4] && board[4] == board[8]) ||
                 (board[2] == board[4] && board[4] == board[6]))
             {
+                if (player != 0)
+                {
+                    Console.WriteLine($"Player {player} WINS!");
+                }
+
                 return true;
+
             }
             else
             {
                 return false;
             }
         }
-
-        public static bool CheckForTie(string[] board)
+        // This checks for a tie 
+        public bool CheckForTie(string[] board)
         {
             for (int i = 0; i < board.Length; i++)
             {
@@ -44,8 +51,15 @@ namespace Mission4___TicTacToe___Group_3_6
                 {
                     return false;
                 }
+                
             }
-            return true;
+            if (!CheckForWinner(board, 0))
+            {
+                Console.WriteLine("It's a TIE!");
+                return true;
+            }else { return false; }
+
+            
         }
     }
 }
