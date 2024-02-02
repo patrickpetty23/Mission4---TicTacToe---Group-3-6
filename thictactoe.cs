@@ -8,7 +8,7 @@ namespace Mission4___TicTacToe___Group_3_6
 {
     class ThicTacToe
     {
-        public static void PrintBoard(string[] board)
+        public void PrintBoard(string[] board)
         {
             Console.WriteLine(" {0} | {1} | {2} ", board[0], board[1], board[2]);
             Console.WriteLine("---+---+---");
