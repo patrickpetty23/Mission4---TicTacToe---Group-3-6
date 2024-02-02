@@ -43,7 +43,7 @@ do
         Console.WriteLine("Where do you place your mark?");
         Console.WriteLine("Enter a number from 1 to 9: ");
         userInput = Console.ReadLine();
-        if (!Int32.TryParse(userInput, out spot))
+        if (!Int32.TryParse(userInput, out spot) || int.Parse(userInput) < 1 || int.Parse(userInput) > 9)
         {
             Console.WriteLine("Please enter a valid integer");
         } else if (gameboard[spot - 1] == "X" || gameboard[spot - 1] == "O")
